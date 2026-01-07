@@ -1,15 +1,42 @@
-function fn(number) {
-    return number * 2;
-  }
-  
-  console.log(fn(2));
-  console.log(fn(4));
-  
-  const fnArrow = number => {
-    console.log(number);
-    return number * 2;
-  };
-  
-  const fnArrowObj = number => ({ result: number * 2 })
-  
-  console.log(fnArrowObj(2));
+// コールバック関数を受け取る関数
+// fnという引数で「関数」を受け取る
+function print(fn) {
+  // 受け取った関数を実行し、引数に2を渡す
+  const result = fn(2);
+  console.log(result);
+}
+
+// コールバック関数として渡される関数
+// numberのデフォルト値は3だが、呼び出し時に上書きされる
+function fn(number = 3) {
+  return number * 2;
+}
+
+debugger;
+// fnを「関数そのもの」として渡す（fn()ではない）
+// print内でfn(2)が実行され、2 * 2 = 4が出力される
+print(fn)
+
+/*
+## コールバック関数の解説
+
+このコードは**コールバック関数**の基本的な使い方を示しています。
+
+ポイント：
+
+1. print(fn) - fnという関数を引数として渡しています（fn()と実行していない点に注目）
+
+2. print関数の中 - 受け取った関数fnをfn(2)として実行しています
+
+3. 実行の流れ：
+  - print(fn) が呼ばれる
+  - printの中で fn(2) が実行される
+   - fn(2) は 2 * 2 = 4 を返す
+  - console.log(4) で「4」が出力される
+
+コールバック関数とは：
+他の関数に「引数として渡される関数」のことです。渡された関数は、受け取った側の関数の中で好きなタイミングで実行できま
+す。
+
+Reactでは、イベントハンドラー（onClick={handleClick}）などでこのパターンをよく使います！
+*/
