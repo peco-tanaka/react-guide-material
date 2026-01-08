@@ -1,7 +1,9 @@
+import "./Example.css"
+
 const Example = () => {
   return (
-    <div>
-      <h3>startフォルダのコード</h3>
+    <div className="component">
+      <h3>Hello</h3>
     </div>
   );
 };
