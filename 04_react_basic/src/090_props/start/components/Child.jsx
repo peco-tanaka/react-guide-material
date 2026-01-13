@@ -5,9 +5,14 @@
 
 import "./Child.css";
 
-const Child = () => {
+// オブジェクトなので分割代入できる
+const Child = ({ color: c = 'green' }) => {
+
+  // 呼び出し元のpropsで渡された値の中身を確認
+  // console.log(props)
+
   return (
-    <div className="component">
+    <div className={`component ${c}`}>
       <h3>Hello Component</h3>
     </div>
   );
