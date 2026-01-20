@@ -1,7 +1,7 @@
 const Bye = (props) => {
 
   // propsは読み取り専用のオブジェクトなので変更できない
-  props.name = "Bob";
+  // props.name = "Bob";
 
   return (
     <div>
